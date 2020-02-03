@@ -1,0 +1,6 @@
+syote = input('Anna teksti: ')
+print(f'Pituus: {len(syote)}')
+print(f'Ensimmäinen merkki: {syote[0]}')
+print(f'Viimeinen merkki: {syote[-1]}')
+print(f'Kolmannesta merkistä eteenpäin: {syote[2:]}')
+print(f'Joka toinen merkki: {syote[0::2]}')
