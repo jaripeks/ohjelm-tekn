@@ -44,11 +44,12 @@ def tarkista(arvonta, rivi):
     """
     # pelatut täytyy olla set, jotta voi kutsua metodia intersection
     pelatut = set(rivi)
-    # samat on tuple koska (?)
+    # samat on tuple koska why not
     samat = (pelatut.intersection(set(arvonta[0])), pelatut.intersection(set(arvonta[1])))
     print(f"{len(samat[0])} oikein {list(samat[0])} ja {len(samat[1])} lisänumeroa {list(samat[1])}")
 
 def main():
+    """ kopioitu suoraan tehtävänannosta """
     arvonta = lottoarvonta()
     print('Oikea rivi:', end=' ')
     print(*arvonta[0], sep=', ')
