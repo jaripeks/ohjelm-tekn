@@ -44,7 +44,7 @@ def tarkista(arvonta, rivi):
     """
     # pelatut täytyy olla set, jotta voi kutsua metodia intersection
     pelatut = set(rivi)
-    # samat on tuple koska why not
+    # samat on tuple (samat_pelatut, samat_lisanumerot) koska why not
     samat = (pelatut.intersection(set(arvonta[0])), pelatut.intersection(set(arvonta[1])))
     print(f"{len(samat[0])} oikein {list(samat[0])} ja {len(samat[1])} lisänumeroa {list(samat[1])}")
 
