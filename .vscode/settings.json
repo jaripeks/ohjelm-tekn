@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Riikka\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
+    "python.pythonPath": "teht4_5\\Scripts\\python.exe",
+    "python.autoComplete.extraPaths": ["./teht4_5"]
 }
