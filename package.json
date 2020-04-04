@@ -4,8 +4,12 @@
   "description": "Node project for Ohjelmistokehityksen teknologioita SWD4TN023-3006 exercise Node.js: Johdanto",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index.js",
+    "test": "jest"
   },
   "author": "PS",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.2.7"
+  }
 }
