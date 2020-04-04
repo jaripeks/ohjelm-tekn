@@ -1,0 +1,11 @@
+{
+  "name": "teht_1",
+  "version": "1.0.0",
+  "description": "Node project for Ohjelmistokehityksen teknologioita SWD4TN023-3006 exercise Node.js: Johdanto",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "PS",
+  "license": "ISC"
+}
