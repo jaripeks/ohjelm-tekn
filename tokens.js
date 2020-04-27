@@ -13,7 +13,7 @@ const create = sub => {
             expiresIn: jwtExpirySeconds
         }
     )
-    console.log('token:', token);
+    //console.log('token:', token);
     return token;
 }
 
@@ -26,7 +26,7 @@ const verify = token => {
         const payload = jwt.verify(token, jwtKey)
         return payload;
     } catch (e) {
-        console.log("Verification failed");
+        //console.log("Verification failed");
         return;
     }
 

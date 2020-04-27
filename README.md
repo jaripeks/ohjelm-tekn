@@ -12,3 +12,6 @@ Tämä on REST API -tehtävän pohja.
   Dokumentaatio luodaan hakemistoon `docs`.
 - Moduuli `tokens.js` sisältää funktiot yksinkertaisen JSON Web Tokenin luomiseen (`create`) ja tarkastamiseen (`verify`). 
 - JWT:n allekirjoittamiseen tarvitaan salaisuus, jonka vaatimukset riippuvat käytetystä algoritmista. Moduulissa `tokens.js` esiintyvä salaisuus on tuotettu ohjelmalla `createKey.js`.
+
+## Kommentteja
+Nojuuh, oli vähän ongelmia, kun ei toi annettu db.js tarjonnut samanlaista objektia, kuin tehtävänannossa. tässä tosiaan objekti on { id: poi }, kun tehtävänannossa poi = { id: 'idn', name: 'nimi', jne }

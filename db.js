@@ -1,7 +1,7 @@
 /** 
 * Mockup database module. The data is volatile, it is stored only in memory and will be reset whenever the server is restarted.
 * @module db 
-*/ 
+*/
 
 /**
  * Coordinates
@@ -21,8 +21,9 @@
 
 const uuid = require('uuid/v1');
 
-const storage = {
-   '50e31360-0521-11ea-acba-e389d9b4cbaa': {
+let storage = [
+    {
+        id: '50e31360-0521-11ea-acba-e389d9b4cbaa',
         name: 'Haaga-Helia ammattikorkeakoulu',
         description: 'Haaga-Helia ammattikorkeakoulu kouluttaa liike-elämän ja palveluelinkeinojen asiantuntijoita sekä tutkii ja kehittää näihin aloihin liittyvää osaamista ja toimintaa. Koulutusalamme ovat liiketalous, tietotekniikka, hotelli-, ravintola- ja matkailuala, johdon assistenttityö, toimittajakoulutus, liikunta-ala sekä ammatillinen opettajankoulutus. Meille on tärkeää, että opiskelijoillamme on heti valmistuttuaan vahvat siteet työelämään. Panostamme toiminnassamme yrittäjyyteen, yhteistyöhön, innovatiivisuuteen ja kansainvälisyyteen.',
         city: "Helsinki",
@@ -30,8 +31,18 @@ const storage = {
             lat: 60.203598,
             lng: 24.934968
         }
+    },
+    {
+        id: 'there_is_no_place_like',
+        name: 'Poromagia',
+        description: 'what lies in the shadows...',
+        city: 'Helsinki',
+        coordinates: {
+            lat: 60.199207,
+            lng: 24.938719
+        }
     }
-}
+]
 
 /**
  * Get one entry by id or all POIs
@@ -39,11 +50,7 @@ const storage = {
  * @param {string=} id - id of entry to get, if no id given all entries are returned as an array
  */
 function getPoi(id) {
-    if (id) {
-        return storage[id];
-    } else {
-        return Object.values(storage);
-    }
+    return id ? storage.filter(poi => poi.id === id)[0] : storage
 }
 
 /**
@@ -54,8 +61,12 @@ function getPoi(id) {
  * @param {POI} poi - new POI data
  */
 function setPoi(id, poi) {
-    storage[id] = { id, ...poi };
-    return storage[id];
+    if (storage.map(poi => poi.id).includes(id)) {
+        storage = storage.map(p => p.id !== id ? p : { id, ...poi })
+    } else {
+        storage = storage.concat({ id, ...poi })
+    }
+    return getPoi(id)
 }
 
 /**
@@ -65,7 +76,8 @@ function setPoi(id, poi) {
  */
 function createPoi(poi) {
     const id = uuid();
-    return setPoi(id, poi);
+    storage = storage.concat({ id, ...poi });
+    return getPoi(id, poi);
 }
 
 /**
@@ -75,7 +87,7 @@ function createPoi(poi) {
  */
 function deletePoi(id) {
     if (id && getPoi(id)) {
-        delete storage[id];
+        storage = storage.filter(p => p.id !== id)
         return true;
     } else {
         return false;
